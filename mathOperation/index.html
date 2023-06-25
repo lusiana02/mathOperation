@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Operations</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="math-box">
+    <h2>Math Operations</h2>
+    <form>
+        <div class="operation-box">
+            <input type="text" id=firstNumber name="" required="" onkeypress="return justNumber(event)">
+            <label>Enter the first number</label>     
+        </div>
+        <div class="operation-box">
+            <input type="text" id=secondNumber name="" required="" onkeypress="return justNumber(event)">
+            <label>Enter the second number</label>  
+        </div>
+        <div class="operation-box">
+            <input type="text" id=thirdNumber name="" required="" onkeypress="return justNumber(event)">
+            <label>Enter the third number</label>  
+        </div>
+        </form>
+        <center>
+        <button style="--clr:#03e9f4" onclick=max()><span>Max</span><i></i></button>
+        <button style="--clr:#03e9f4" onclick=total()><span>Total</span><i></i></button>
+        <br>
+        <div class="output" id="output"></div>
+        <p style="font-size: 12px; color: white;">Heni Lusiana Dewi (21082010060)</p>
+        </center>
+    <script>
+        const output = document.querySelector('#output')
+        function justNumber(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+        function max(){
+            output.innerHTML = `Maximum Value = ${Math.max(firstNumber.value,secondNumber.value,thirdNumber.value)}`;
+        }
+        function total(){
+            let input1 = document.getElementById('firstNumber').value;
+            let input2 = document.getElementById('secondNumber').value;
+            let input3 = document.getElementById('thirdNumber').value;
+            output.innerHTML = `Total Value = ${parseInt(input1)+parseInt(input2)+parseInt(input3)}`;
+        }
+    </script>
+    
+    </div>
+    
+</body>
+</html>
